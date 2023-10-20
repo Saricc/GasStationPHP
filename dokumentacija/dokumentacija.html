@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>dokumentacija</head>
+
+
+
+<body>
+    <div>
+
+        OPIS PROJEKTNOG ZADATKA
+        <br>
+        Napisati program u web okruzenju koji sluzi zaposlenicima benzinske crpke za evidenciju prodanog goriva.
+        Benzinska crpka ima 2 spremnika za gorivo – jedan za diesel i jedan za benzin. Svaki spremnik je velicine 20.000
+        litara. Minimalna kolicina goriva za koju se moze izdati racun je 5 litara. Cijena diesela je 8.78kn/l, a
+        benzina 9.65kn/l. Program treba imati slijedece mogucnosti:
+        <br>
+        Izdaj racun
+        Zaposlenik putem forme prvo unosi tip goriva (diesel ili benzin). Zatim program ispisuje dostupnu kolicinu
+        odabranog goriva koju je moguce prodati. Ako zaposlenik unese manju kolicinu od 5 litara ili vecu kolicinu od
+        dostupne, program treba obavijestiti zaposlenika. Nakon ispravno unesenih podataka kreira se racun (datum
+        kreiranja, gorivo, kolicina, cijena, zaposlenik) te se zapisuje u bazu.
+        <br>
+        Stanje u spremnicima
+        Zaposlenik ima mogucnost provjere stanja pojedinog goriva u spremniku.
+        <br>
+        Pregled racuna
+        Pregled svih racuna iz baze, sortirani od najnovijeg prema najstarijem.
+        <br>
+        Azuriraj stanje spremnika:
+        Omoguciti zaposleniku odabir spremnika (diesel ili benzin) te unos nove kolicine goriva. Minimalna kolicina koju
+        zaposlenik moze unijeti je 1.000 litara, maksimalna je iznos preostao u spremniku. U slucaju krivog unosa
+        ispisati obavijest.
+        <br>
+        Statistika prodanog goriva
+        Omoguciti zaposleniku statisticki pregled goriva preko izbornika:
+        Ukupna kolicina prodanog diesela
+        Ukupna kolicina prodanog benzina
+        Podatke prikazati na grafu. Koristiti neki besplatni Javascript graf plugn, npr. plotly js.]
+        <br>
+        <br><br>
+
+        OPIS PROJEKTNOG RJESENJA
+        <br>
+        Kreirana dva razlicita tipa korisnika, zaposlenik i administrator(ujedno i dva razlicita linka dostupna za
+        login). Neregistrirani korisnik se moze pokusati ulogirati, no nece uspjeti jer nema podatke. Neregistrirani
+        korisnici su svi oni koji se nikad nisu registrirali na web stranici naziva registracija.php, nije bilo potrebe
+        kreirati ih jer su to svi oni koji posjete stranicu a nisu zaposlenik i administrator koji imaju log in podatke
+        uslijed registracije. Administrator je samo jedan te je njegovo korisnicko ime i lozinka kreirano izravno u bazi
+        Benza u tablici Administrator od strane autora aplikacije. Zaposlenici su svi oni koji izvrse registraciju.
+        Zaposlenici imaju pristup stranici administracija.php nakon logiranja gdje se odvija vecina poslovne logike,
+        odnosno gdje se ostvaruju odredene fukncionalnosti projektnog zadatka. To su sljedece: izdavanje racuna,
+        mogucnost provjere stanja pojedinog goriva u spremniku, pregled svih racuna iz baze(sortirani od najnovijeg
+        prema najstarijem), azuriranje stanja spremnika, uvid u statistiku prodanog goriva. Neregistrirani korisnik ima
+        mogucnost uvida u podatke o racunima ali u ogranicenom obimu. Administrator ima pristup stranici postavke.php
+        gdje ima mogucnosti konfiguriranja sustava i postavljanja odredenih stavki, a ostalim stranicama moze pristupiti
+        kao registrirani korisnik s vlastitim log in podacima.
+        <br>
+        <br>
+        POPIS MAPA:<br>
+        <br>
+
+        MAPA CSS<br>
+
+        1) stil.css<br>
+        <br>
+        MAPA HANDLERS<br>
+        1)azuriranje_backend.php<br>
+        2)backup.php<br>
+        3)DBconnection.php<br>
+        4)gorivo_backend.php<br>
+        5)login_backend.php<br>
+        6)loginAdmin_backend.php<br>
+        7)logout_backend.php<br>
+        8)mailAdminu_backend.php<br>
+        9)postavke_backend.php<br>
+        10)pretrazivanje_backend.php<br>
+        11)racun_backend.php<br>
+        12)remember_backend.php<br>
+        13)statistika_backend.php<br>
+        14)toClient.php<br>
+        15)ValidacijaPosluzitelj.php<br>
+        <br>
+        FRONTEND<br>
+        1)index.php<br>
+        2)login_admin.php<br>
+        3)login_provjera_token.php<br>
+        4)login.php<br>
+        5)mailAdminu.php<br>
+        6)postavke.php<br>
+        7)pretrazivanje.php<br>
+        8)provjeraHTTPS.php<br>
+        9)registracija.php<br>
+        10)statistika.php<br>
+        11)index.php<br>
+
+        <br>
+        Mapa templates<br>
+        1)footer.php<br>
+        2)head.php<br>
+        3)header.php<br>
+        <br>
+
+
+        Koristeni su HTML, CSS, JS, PHP, MySQL<br>
+        Libraries jquery :https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js, kako bi mogli olaksano
+        koristiti
+        AJAX i upravljati elementima<br>
+
+
+        https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js
+
+        <br>
+        https://cdn.plot.ly/plotly-2.18.0.min.js<br>
+
+        https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit<br>
+        <br>
+        *Recaptcha gotova rjesenja od google-a<br>
+        *preuzeto rjesenje za cookie u php i js<br>
+        *preuzeto rjesenje za sve vezano za email<br>
+        *preuzeto rjesenje za backup sa sluzbene stranice fakulteta<br>
+        *preuzeto rjesenje za graf plotly js-cookie<br>
+        *preuzeto rjesenje ajax sintaksa<br>
+        *preuzeto rjesenje random string za cookie<br>
+
+
+        <br>
+
+
+        PHP smo koristili sessione i cookie. U sessione amo pohranjivali vrijednosti koje smo zeljedli da server zapamni
+        dok nam sesija traje *(npr. loggedIn), dok smo u cookie
+        Pohranjivali odredene podatke koji nam omogucavaju kontrolu korisnika u smislu koliko dugo ce mu trajati aktivna
+        prijava na stranicu putem randopm tokena koji smo generirali, generiranje tokena za svaki pojedini ponovni login
+        nkorisnika u kolacic i koji se pohranjuje i u bazu podataka tablicu Zaposlenik te time postaje dio podataka koji
+        se veze na odredenog zaposlenika.
+        kreiranje i spremanju podataka u tablicu Racuni) koje je izdavanje ograniceno uvjetima(ako zaposlenik unese
+        manju kolicinu od 5 litara ili veću kolicinu od dostupne, program treba obavijestiti zaposlenika)
+
+
+
+        <br>
+
+        <br>
+        baza podataka - phpMyAdmin
+        <br>
+        Benza(tablice: Zaposleni, Gorivo, Racuni, Postavke, Administrator, Poruka)
+        <br>
+
+        XAMPP
+
+        <br>
+
+    </div>
+</body>
+
+</html>

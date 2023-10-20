@@ -1,0 +1,15 @@
+@media screen and (min-width: 200px) {
+
+    header,
+    footer {
+        font-weight: 700;
+        color: white;
+        font-family: "Helvetica Neue";
+        text-align: center;
+    }
+
+    body {
+        background-image: url("https://wallpapercave.com/wp/wp10601994.jpg");
+        background-size: cover;
+    }
+}
